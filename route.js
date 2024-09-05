@@ -136,4 +136,10 @@ router.use('/signup',(req,res)=>
 {
         india_obj.Signup_user(req,res)
 })
+
+router.use('/Welcome_Dashboard',(req,res)=>
+{
+       res.render('Dashboard')
+       res.end()
+})
 module.exports=router

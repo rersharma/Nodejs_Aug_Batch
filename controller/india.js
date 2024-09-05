@@ -172,6 +172,7 @@ class india
                               })
             }
       }
+      
 
       Login_Check(req,res)
       {
@@ -182,7 +183,38 @@ class india
                   } 
                   else 
                   {
-
+                         connect_obj.getConnection((err,myconnection)=>
+                        {
+                                  if(err)
+                                  {
+                                        res.send(err)
+                                        res.end()
+                                  }
+                                  else 
+                                  {
+                                      const q=`select * from user where email='${req.body.email}' and password='${req.body.password}'`
+                                          myconnection.query(q,(err,data)=>
+                                          {
+                                                if(err)
+                                                {
+                                                       res.send(err)
+                                                       res.end()
+                                                }
+                                                else 
+                                                {
+                                                         if(data.length>0)
+                                                         {
+                                                                res.redirect('/Welcome_Dashboard')
+                                                         }
+                                                         else 
+                                                         {
+                                                            res.render('login',{message:'Invalid Credentials'})
+                                                            res.end()
+                                                         }
+                                                }
+                                          })
+                                  }
+                        })
                   }
       }
 

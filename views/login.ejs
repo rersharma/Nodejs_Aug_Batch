@@ -19,6 +19,11 @@
              <br>
             
              <a href="/signup">Create An Account?</a>
+             <br>
+             <%if(locals.message)
+             {%>
+                  <h3 style="color:red;"><%=message%></h3>
+             <%}%>
              </center>
 </body>
 </html>
