@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+           <%- include('common/nav') %>
+           <br><br>
+            <h1 align="center">Control Panel</h1>
+            <br>
+            <center>
+            <form action="/login" method="post">
+                Email-Id <input type="email" required placeholder="Enter Email-Id"> <br><br>
+                Password <input type="password" required placeholder="Enter Password"><br><br>
+                <button>Login</button>
+             </form>
+             <br>
+            
+             <a href="/signup">Create An Account?</a>
+             </center>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+<!-- Bootstrap core JavaScript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Page level plugin JavaScript--><script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+</head>
+<body>
+
+
+  
+
+
+        <h1 align="center">List of Student Records</h1>
+        <%- include('common/nav') %> 
+
+        <br><br>
+        <div class="container">
+              <div class="row">
+                  <div class="col-sm-8 offset-sm-2">
+                    <table  class="table table-primary" id="ram">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Roll</th>
+                                <th>Photo</th>
+                            </tr>
+                        </thead>
+            
+                        <tbody>
+                              <% 
+                              record.forEach(function(row)
+                              { %>
+                                       <tr>
+                                               <td> <%=row.id%>    </td>
+                                               <td> <%=row.name%>    </td>
+                                               <td> <%=row.roll%>    </td>
+                                               <td>
+                                                 <img src="<%=row.photo%>" width="100px" height="100px">
+                                                </td>
+                                       </tr>
+                              <%})
+            
+                              %>
+                        </tbody>
+            
+                    </table>
+            
+                  </div>
+              </div>
+        </div>
+
+             
+    
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+        <script>
+              $(document).ready(()=>
+            {
+                $("#ram").dataTable()
+            })
+
+        </script>
+</body>
+</html>

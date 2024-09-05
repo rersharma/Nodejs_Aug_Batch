@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">Subtraction App</h1>
+    <%- include('common/nav') %>
+
+    <center>
+              <form action="/subtract" method="post">
+                Enter Your A value <input type="number" name="a" required><br><br>
+                Enter Your B value <input type="number" name="b" required> <br><br>
+                <button>Find Subtract</button>
+              </form>
+
+              <% if(locals.result)
+              {%>
+                   <h3><%=result%></h3>
+              <%}%>
+    </center>
+
+</body>
+</html>

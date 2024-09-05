@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+        <h1 align="center">Student Registartion</h1>
+        <%- include('Common/nav') %>
+        <br><br>
+       <form align="center" action="/student_add" method="post" enctype='multipart/form-data'>
+        Enter Student Name <input type="text" name="name" required> <br><br>
+        Enter Student Roll <input type="number" name="roll" required><br><br>
+        Photo <input type="file" name="photo" required><br><br>
+        <button>Add Now</button>
+       </form>
+       <% if(locals.message)
+       {%>
+            <h1 align="center"><%=message%></h1>
+       <%}%>
+</body>
+</html>

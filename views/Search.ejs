@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find record</title>
+</head>
+<body>
+         <h1 align="center">Search Record Example</h1>
+         <%- include('common/nav') %>
+         <br><br>
+
+         <form action="/find_Record" method="post">
+            Enter Human Name <input type="text" name="name" required placeholder="Enter Human Name">
+            <button>Search</button>
+         </form>
+
+         <% if(locals.record)
+         {%>
+            <h3 align="center" style="color:green;">Record Found</h3>
+            <table  align="center" border="1" id="ram">
+                <thead>
+                    <tr>
+                        <th>SNO</th>
+                        <th>Name</th>
+                        <th>Adhar Card</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                      <% 
+                      record.forEach(function(row)
+                      { %>
+                               <tr>
+                                       <td> <%=row.id%>    </td>
+                                       <td> <%=row.name%>    </td>
+                                       <td> <%=row.Adharcard%>    </td>
+                                       <td> <%=row.address%>    </td>
+                               </tr>
+                      <%})
+    
+                      %>
+                </tbody>
+    
+            </table>
+         <%}
+         else if(locals.message)
+         {%>
+              <h3 align="center" style="color:red;"><%=message%></h3>
+         <%}%>
+</body>
+</html>

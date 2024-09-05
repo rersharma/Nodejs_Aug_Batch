@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+           <%- include('common/nav') %>
+           <br><br>
+            <h1 align="center">Registartion</h1>
+            <br>
+            <center>
+            <form action="/signup" method="post">
+                Name <input type="text" required name="name" placeholder="Enter Your Name"> <br><br>
+                Email-Id <input type="email" name="email" required placeholder="Enter Email-Id"> <br><br>
+                Password <input type="password" name="password" required placeholder="Enter Password"><br><br>
+                Gender <input type="radio" required name="gender" value="Male"> Male
+                       <input type="radio" required name="gender" value="Female">Female <br><br>
+                Mobile <input type="number" required name="mobile" placeholder="Enter Mobile No"> <br><br>
+                Address <textarea cols="20" rows="5" required name="address"></textarea><br><br>
+                <button>Login</button>
+             </form>
+             <br>
+            
+             <a href="/login">Already Have An Account?</a>
+             <br><br>
+             <% if(locals.message)
+             { %>
+                  <h4 style="color:green;"><%=message%></h4>
+                  <h6 style="color:blue">Redirecting Please Wait...</h6>
+                  <script>
+                         setTimeout(() => {
+                              window.location.href='http://localhost:1992/login';
+                         },3000);
+                  </script>
+             <%}%>
+             </center>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multplication</title>
+</head>
+<body>
+    <h1 align="center">Multplication App</h1>
+    <%- include('common/nav') %> 
+    <br><br>
+    <form action="/multi" method="post" align="center">
+        Enter Your A value <input type="number" required name="a"><br><br>
+        Enter Your B value <input type="number" required name="b"><br><br>
+        <button>Find Multiplication</button>
+    </form>
+    <center>
+        <% if(locals.message)
+        {%>
+              <h3><%=message%></h3>
+        <%}%>
+    </center>
+</body>
+</html>
