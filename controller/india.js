@@ -257,6 +257,70 @@ class india
                         })
                   }
       }
+
+      change_pass(req,res)
+      {
+           if(req.method==='GET')
+           {
+                res.render('changepassword')
+                res.end()
+           }
+           else 
+           {
+                  connect_obj.getConnection((err,myconnection)=>
+                  {
+                         if(err)
+                         {
+                              res.send(err)
+                              res.end()
+                         }
+                         else 
+                         {
+                              const q=`select * from user where email='${req.session.myemailid}' and password='${req.body.oldpass}'`
+                              myconnection.query(q,(err,data)=>
+                              {
+                                     if(err)
+                                     {
+                                           res.send(err)
+                                           res.end()
+                                     }
+                                     else 
+                                     {
+                                            if(data.length>0)
+                                            {
+                                                   if(req.body.newpass==req.body.confpass)
+                                                   {
+                                                      const q1=`update user set password='${req.body.newpass}' where email='${req.session.myemailid}'`
+                                                      myconnection.query(q1,(err)=>
+                                                      {
+                                                             if(err){
+                                                                  res.send(err) 
+                                                                  res.end()}
+                                                             else 
+                                                             {
+                                                                  res.render('changepassword',{message:'Password Change successfully',message2:'Relogin?'})
+                                                             res.end()
+
+                                                             }
+                                                      })
+                                                   }
+                                                   else 
+                                                   {
+                                                      res.render('changepassword',{message:'New & Confirm password Mismatch'})
+                                                      res.end()
+                                                   }
+                                            }
+                                            else 
+                                            {
+                                                res.render('changepassword',{message:'Old Password Inccorect'})
+                                                res.end()
+                                            }
+                                     }
+                              })
+                         }
+                  })
+           }
+      }
 }
 
 

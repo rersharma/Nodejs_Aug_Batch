@@ -137,6 +137,21 @@ router.use('/signup',(req,res)=>
         india_obj.Signup_user(req,res)
 })
 
+router.use('/change_password',(req,res)=>
+{ 
+    if(req.session.myemailid)
+    {
+        india_obj.change_pass(req,res)
+    }
+    else 
+    {
+        res.render('login',{message:'Lgoin Here.....'})
+        res.end() 
+    }
+
+})
+
+
 router.use('/Welcome_Dashboard',(req,res)=>
 {
      if(req.session.myemailid)
