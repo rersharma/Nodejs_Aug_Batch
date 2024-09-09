@@ -139,7 +139,22 @@ router.use('/signup',(req,res)=>
 
 router.use('/Welcome_Dashboard',(req,res)=>
 {
+     if(req.session.myemailid)
+     {
        res.render('Dashboard')
        res.end()
+     }
+     else 
+     {
+        res.render('login',{message:'Lgoin Here.....'})
+        res.end()
+     }
+})
+
+router.use('/logout',(req,res)=>
+{
+      req.session.destroy()
+      res.render('login',{message:'Logout Successfully'})
+        res.end()
 })
 module.exports=router

@@ -204,6 +204,7 @@ class india
                                                 {
                                                          if(data.length>0)
                                                          {
+                                                                 req.session.myemailid=req.body.email
                                                                 res.redirect('/Welcome_Dashboard')
                                                          }
                                                          else 
